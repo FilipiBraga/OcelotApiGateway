@@ -44,5 +44,14 @@
         {
             return _articles.FirstOrDefault(x => x.Id == id);
         }
+
+        public int Delete(int id)
+        {
+            var removed = _articles.SingleOrDefault(x => x.Id == 1);
+            if (removed != null)
+                _articles.Remove(removed);
+
+            return removed?.Id ?? 0;
+        }
     }
 }

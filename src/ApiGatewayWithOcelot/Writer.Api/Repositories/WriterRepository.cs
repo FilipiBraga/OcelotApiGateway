@@ -31,6 +31,15 @@
             return _writers;
         }
 
+        public Models.Writer Insert(Models.Writer writer)
+        {
+            var maxId = _writers.Max(x => x.Id);
+            writer.Id = ++maxId;
+            _writers.Add(writer);
+
+            return writer;
+        }
+
         public Models.Writer? Get(int id)
         {
             return _writers.FirstOrDefault(x => x.Id == id);

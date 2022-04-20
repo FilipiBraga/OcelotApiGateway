@@ -26,5 +26,14 @@ namespace Writer.Api.Controllers
         {
             return Ok(_writerRepository.Get(id));
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody]Models.Writer writer)
+        {
+            var result = _writerRepository.Insert(writer);
+
+            return Created($"/get/{result.Id}", result);
+        }
+
     }
 }

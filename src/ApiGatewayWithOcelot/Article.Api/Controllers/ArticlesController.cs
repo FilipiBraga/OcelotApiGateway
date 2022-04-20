@@ -25,5 +25,11 @@ namespace Article.Api.Controllers
         {
             return Ok(_articleRepository.Get(id));
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            return Ok(_articleRepository.Delete(id));
+        }
     }
 }
