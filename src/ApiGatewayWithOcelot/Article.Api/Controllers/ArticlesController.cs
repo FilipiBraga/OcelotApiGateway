@@ -23,12 +23,20 @@ namespace Article.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_articleRepository.Get(id));
+            var article = _articleRepository.Get(id);
+            if (article is null)
+                return NotFound();
+
+            return Ok(article);
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            var deletedId = _articleRepository.Delete(id);
+            if (deletedId == 0)
+                return NoContent();
+
             return Ok(_articleRepository.Delete(id));
         }
     }

@@ -24,7 +24,11 @@ namespace Writer.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_writerRepository.Get(id));
+            var writer = _writerRepository.Get(id);
+            if (writer is null)
+                return NotFound();
+
+            return Ok(writer);
         }
 
         [HttpPost]
