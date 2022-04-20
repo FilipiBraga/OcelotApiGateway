@@ -2,7 +2,7 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
 IConfiguration configuration = new ConfigurationBuilder()
-                            .AddJsonFile("ocelot.json")
+                            .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
                             .Build();
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +31,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+await app.UseOcelot();
+
 app.Run();
 
-await app.UseOcelot();
+
