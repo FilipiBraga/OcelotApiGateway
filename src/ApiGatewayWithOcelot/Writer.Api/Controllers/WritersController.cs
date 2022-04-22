@@ -10,9 +10,9 @@ namespace Writer.Api.Controllers
     {
         private readonly WriterRepository _writerRepository;
 
-        public WritersController()
+        public WritersController(WriterRepository writerRepository)
         {
-            _writerRepository = new();
+            _writerRepository = writerRepository;
         }
 
         [HttpGet]

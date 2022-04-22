@@ -2,7 +2,7 @@
 {
     public class WriterRepository : List<Models.Writer>
     {
-        private static List<Models.Writer> _writers = Populate();
+        private readonly static List<Models.Writer> _writers = Populate();
 
         private static List<Models.Writer> Populate()
         {

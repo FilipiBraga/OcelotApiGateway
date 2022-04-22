@@ -2,7 +2,7 @@
 {
     public class ArticleRepository : List<Models.Article>
     {
-        private static List<Models.Article> _articles = Populate();
+        private readonly static List<Models.Article> _articles = Populate();
 
         private static List<Models.Article> Populate()
         {

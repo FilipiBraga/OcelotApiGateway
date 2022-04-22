@@ -9,9 +9,9 @@ namespace Article.Api.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly ArticleRepository _articleRepository;
-        public ArticlesController()
+        public ArticlesController(ArticleRepository articleRepository)
         {
-            _articleRepository = new();
+            _articleRepository = articleRepository;
         }
 
         [HttpGet]
