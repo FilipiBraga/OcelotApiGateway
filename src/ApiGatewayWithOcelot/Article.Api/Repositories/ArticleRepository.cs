@@ -34,7 +34,6 @@ namespace Article.Api.Repositories
             };
 
             return result;
-
         }
 
         public List<Models.Article> GetAll()
@@ -50,6 +49,7 @@ namespace Article.Api.Repositories
         public int Delete(int id)
         {
             var removed = _articles.SingleOrDefault(x => x.Id == 1);
+
             if (removed != null)
                 _articles.Remove(removed);
 

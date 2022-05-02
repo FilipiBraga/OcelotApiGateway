@@ -23,6 +23,7 @@ namespace Article.Api.Controllers
         public IActionResult Get(int id)
         {
             var article = _articleRepository.Get(id);
+
             if (article is null)
                 return NotFound();
 
@@ -33,6 +34,7 @@ namespace Article.Api.Controllers
         public IActionResult Delete(int id)
         {
             var deletedId = _articleRepository.Delete(id);
+
             if (deletedId == 0)
                 return NoContent();
 

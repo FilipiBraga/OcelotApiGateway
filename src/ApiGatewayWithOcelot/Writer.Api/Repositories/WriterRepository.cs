@@ -36,6 +36,7 @@ namespace Writer.Api.Repositories
         public Models.Writer Insert(Models.Writer writer)
         {
             var maxId = _writers.Max(x => x.Id);
+
             writer.Id = ++maxId;
             _writers.Add(writer);
 

@@ -24,6 +24,7 @@ namespace Writer.Api.Controllers
         public IActionResult Get(int id)
         {
             var writer = _writerRepository.Get(id);
+
             if (writer is null)
                 return NotFound();
 
