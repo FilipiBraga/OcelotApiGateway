@@ -1,6 +1,6 @@
+using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Ocelot.Cache.CacheManager;
 
 IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)

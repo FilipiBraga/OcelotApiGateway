@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Writer.Api.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
 using Writer.Api.Repositories.Interfaces;
 
 namespace Writer.Api.Controllers

@@ -1,12 +1,6 @@
-﻿using Article.Api.Repositories;
-using Article.Api.Repositories.Interfaces;
+﻿using Article.Api.Repositories.Interfaces;
 using Article.Tests.Mock.Models;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Article.Tests.Mock
 {

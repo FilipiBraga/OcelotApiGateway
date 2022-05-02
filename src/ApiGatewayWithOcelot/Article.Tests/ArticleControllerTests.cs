@@ -1,11 +1,9 @@
 using Article.Api.Controllers;
-using Article.Api.Repositories;
 using Article.Api.Repositories.Interfaces;
 using Article.Tests.Mock;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Linq;
 
 namespace Article.Tests
 {

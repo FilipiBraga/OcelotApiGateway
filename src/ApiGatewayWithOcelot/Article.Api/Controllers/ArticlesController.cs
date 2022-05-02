@@ -1,6 +1,4 @@
-﻿using Article.Api.Repositories;
-using Article.Api.Repositories.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using Article.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Article.Api.Controllers
