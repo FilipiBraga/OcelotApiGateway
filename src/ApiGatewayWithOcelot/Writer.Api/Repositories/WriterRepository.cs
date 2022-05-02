@@ -1,6 +1,8 @@
-﻿namespace Writer.Api.Repositories
+﻿using Writer.Api.Repositories.Interfaces;
+
+namespace Writer.Api.Repositories
 {
-    public class WriterRepository : List<Models.Writer>
+    public class WriterRepository : List<Models.Writer>, IWriterRepository
     {
         private readonly static List<Models.Writer> _writers = Populate();
 

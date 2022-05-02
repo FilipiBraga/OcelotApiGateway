@@ -1,6 +1,11 @@
 using Article.Api.Controllers;
+using Article.Api.Repositories;
+using Article.Api.Repositories.Interfaces;
+using Article.Tests.Mock;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System.Linq;
 
 namespace Article.Tests
 {
@@ -10,7 +15,10 @@ namespace Article.Tests
         [TestMethod]
         public void GivenTheGetEndpoint_WhenNoParameters_ThenReturnEveryArticles()
         {
-            var controller = InstantiateController();
+            var articleRepositoryMock = new ArticleRepositoryMock()
+                .GetAll();
+
+            var controller = InstantiateController(articleRepositoryMock);
             var result = controller.Get();
 
             Assert.IsNotNull(result);
@@ -20,7 +28,10 @@ namespace Article.Tests
         [TestMethod]
         public void GivenTheGetEndpoint_WhenSendIdAsParameter_ThenReturnTheArticleWithThisId()
         {
-            var controller = InstantiateController();
+            var articleRepositoryMock = new ArticleRepositoryMock()
+                .GetById();
+
+            var controller = InstantiateController(articleRepositoryMock);
             var result = controller.Get(1);
 
             Assert.IsNotNull(result);
@@ -30,7 +41,10 @@ namespace Article.Tests
         [TestMethod]
         public void GivenTheGetEndpoint_WhenSendNotFoundIdAsParameter_ThenReturnNotFound()
         {
-            var controller = InstantiateController();
+            var articleRepositoryMock = new ArticleRepositoryMock()
+                .GetByIdNotFound();
+
+            var controller = InstantiateController(articleRepositoryMock);
             var result = controller.Get(99);
 
             Assert.IsNotNull(result);
@@ -40,7 +54,10 @@ namespace Article.Tests
         [TestMethod]
         public void GivenTheDeleteEndpoint_WhenSendIdAsParameter_ThenDeleteTheArticleWithThisId()
         {
-            var controller = InstantiateController();
+            var articleRepositoryMock = new ArticleRepositoryMock()
+                .Delete();
+
+            var controller = InstantiateController(articleRepositoryMock);
             var result = controller.Delete(1);
 
             Assert.IsNotNull(result);
@@ -50,16 +67,21 @@ namespace Article.Tests
         [TestMethod]
         public void GivenTheDeleteEndpoint_WhenSendNotFoundIdAsParameter_ThenReturnNoContent()
         {
-            var controller = InstantiateController();
+            var articleRepositoryMock = new ArticleRepositoryMock()
+                .DeleteNotFound();
+
+            var controller = InstantiateController(articleRepositoryMock);
             var result = controller.Delete(1);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result is NoContentResult);
         }
 
-        private ArticlesController InstantiateController()
+        private ArticlesController InstantiateController(ArticleRepositoryMock? articleRepositoryMock = null)
         {
-            return new ArticlesController();
+            var mockArticle = articleRepositoryMock ?? new Mock<IArticleRepository>();
+
+            return new ArticlesController(mockArticle.Object);
         }
     }
 }

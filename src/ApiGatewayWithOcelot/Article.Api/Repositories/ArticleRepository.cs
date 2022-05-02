@@ -1,6 +1,8 @@
-﻿namespace Article.Api.Repositories
+﻿using Article.Api.Repositories.Interfaces;
+
+namespace Article.Api.Repositories
 {
-    public class ArticleRepository : List<Models.Article>
+    public class ArticleRepository : List<Models.Article>, IArticleRepository
     {
         private readonly static List<Models.Article> _articles = Populate();
 

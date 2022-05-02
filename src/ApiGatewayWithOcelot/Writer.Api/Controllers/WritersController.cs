@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Writer.Api.Repositories;
+using Writer.Api.Repositories.Interfaces;
 
 namespace Writer.Api.Controllers
 {
@@ -8,9 +9,9 @@ namespace Writer.Api.Controllers
     [ApiController]
     public class WritersController : ControllerBase
     {
-        private readonly WriterRepository _writerRepository;
+        private readonly IWriterRepository _writerRepository;
 
-        public WritersController(WriterRepository writerRepository)
+        public WritersController(IWriterRepository writerRepository)
         {
             _writerRepository = writerRepository;
         }

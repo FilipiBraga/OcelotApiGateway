@@ -1,4 +1,5 @@
 ﻿using Article.Api.Repositories;
+using Article.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,8 +9,8 @@ namespace Article.Api.Controllers
     [ApiController]
     public class ArticlesController : ControllerBase
     {
-        private readonly ArticleRepository _articleRepository;
-        public ArticlesController(ArticleRepository articleRepository)
+        private readonly IArticleRepository _articleRepository;
+        public ArticlesController(IArticleRepository articleRepository)
         {
             _articleRepository = articleRepository;
         }

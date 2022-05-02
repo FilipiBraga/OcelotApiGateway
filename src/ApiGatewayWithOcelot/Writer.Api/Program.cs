@@ -1,4 +1,5 @@
 using Writer.Api.Repositories;
+using Writer.Api.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-builder.Services.AddScoped<WriterRepository>();
+builder.Services.AddScoped<IWriterRepository, WriterRepository>();
 
 var app = builder.Build();
 
