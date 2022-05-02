@@ -11,21 +11,21 @@
                 new Models.Article
                 {
                     Id = 1,
-                    Title = "How to write it",
+                    Title = "First Article",
                     WriterId = 1,
                     LastUpdate = DateTime.Now
                 },
                 new Models.Article
                 {
                     Id = 2,
-                    Title= "Second title",
+                    Title = "Second title",
                     WriterId = 2,
                     LastUpdate = DateTime.Now
                 },
                 new Models.Article
                 {
                     Id = 3,
-                    Title= "Third title",
+                    Title = "Third title",
                     WriterId = 3,
                     LastUpdate = DateTime.Now
                 }

@@ -1,4 +1,7 @@
 {
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5009"
+  },
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/writers",
@@ -10,7 +13,10 @@
           "Host": "localhost",
           "Port": 5002
         }
-      ]
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
     },
     {
       "UpstreamPathTemplate": "/gateway/writers/{id}",
@@ -48,11 +54,10 @@
         }
       ],
       "RateLimitOptions": {
-        "ClientWhitelist": [],
         "EnableRateLimiting": true,
-        "Period": "1s",
-        "PeriodTimespan": 1,
-        "Limit": 1
+        "Period": "10s",
+        "PeriodTimespan": 10,
+        "Limit": 3
       }
     },
     {
@@ -67,15 +72,11 @@
         }
       ],
       "RateLimitOptions": {
-        "ClientWhitelist": [],
         "EnableRateLimiting": true,
-        "Period": "1s",
-        "PeriodTimespan": 1,
+        "Period": "10s",
+        "PeriodTimespan": 10,
         "Limit": 1
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5003"
-  }
+  ]
 }
