@@ -5,7 +5,7 @@ namespace Article.Tests.Mock.Models
 {
     public class ArticleMock
     {
-        public List<Article.Api.Models.Article> GetAll()
+        public List<Api.Models.Article> GetAll()
         {
             return new List<Api.Models.Article>()
             {
@@ -26,7 +26,7 @@ namespace Article.Tests.Mock.Models
             };
         }
 
-        public Article.Api.Models.Article Get()
+        public Api.Models.Article Get()
         {
             return new Api.Models.Article
             {

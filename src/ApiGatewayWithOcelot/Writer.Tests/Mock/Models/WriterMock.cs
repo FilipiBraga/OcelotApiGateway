@@ -4,7 +4,7 @@ namespace Writer.Tests.Mock.Models
 {
     public class WriterMock
     {
-        public List<Writer.Api.Models.Writer> GetAll()
+        public List<Api.Models.Writer> GetAll()
         {
             return new List<Writer.Api.Models.Writer>()
             {
@@ -22,7 +22,7 @@ namespace Writer.Tests.Mock.Models
             };
         }
 
-        public Writer.Api.Models.Writer Get()
+        public Api.Models.Writer Get()
         {
             return new Writer.Api.Models.Writer
             {
@@ -31,7 +31,7 @@ namespace Writer.Tests.Mock.Models
             };
         }
 
-        public Writer.Api.Models.Writer? GetNotFound()
+        public Api.Models.Writer? GetNotFound()
         {
             return default;
         }
